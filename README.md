@@ -1,3 +1,3 @@
 # mercury
 
-# jakekim likes pixxa
+# FirstSteps: authentication(signing in),
