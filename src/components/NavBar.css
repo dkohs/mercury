@@ -1,0 +1,23 @@
+.navbar-main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-left-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-list-item {
+    margin: 8px;
+}
