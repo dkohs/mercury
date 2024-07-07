@@ -1,5 +1,6 @@
 import "./NavBar.css";
 import heartIcon from "../assets/img/heart_icon.png";
+import womenSmiles from "../assets/img/women_smiles.png";
 
 export const NavBar = () => {
   return (
@@ -20,6 +21,9 @@ export const NavBar = () => {
         </ul>
         <button className={"navbar-button"}>Get Started</button>
       </div>
+          <div className={"page-1-picture"}>
+          <img src={womenSmiles} alt={"womenSmiles"} />
+        </div>
     </div>
   );
 };
