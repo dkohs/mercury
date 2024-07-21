@@ -1,16 +1,17 @@
 .navbar-main-container {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar-left-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-right-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    width: 50%;
 }
 
 .navbar-list {
@@ -22,33 +23,7 @@
     margin: 8px;
 }
 
-.page1-subtitle {
-    font-size: 35px;
-}
-
-.page1-subtitle2 {
-    font-size: 50px;
-}
-
-.page1 {
+.navbar-button {
     display: flex;
-}
-
-.page2-text {
-    margin: 100px;
-    width: 50%
-}
-
-.page2-subtitle1 {
-  font-size: 35px;
-}
-
-.page2 {
-  display: flex;
-  color: gray
-}
-
-.page2-buttonbox {
-  margin: 100px;
-  width: 50%
+    margin-left: 300px;
 }

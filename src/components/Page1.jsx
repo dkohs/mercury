@@ -1,3 +1,4 @@
+import "./1stpage.css";
 import heartIcon from "../assets/img/women_smiles.png";
 
 export const Page1 = () => {

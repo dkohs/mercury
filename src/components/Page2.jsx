@@ -1,27 +1,34 @@
+
+import "./2ndpage.css";
 export const Page2 = () => {
   return (
-    <div>
-      <div>Daniel</div>
-      <div className="page2-subtitle1">
-        <nav className="button-bar">
-          <h1>CARDIOVASCULAR DISEASE PREDICTIVE ANALYSIS</h1>
-          <button>Main</button>
-          <button>About</button>
-          <button>Contact</button>
-        </nav>
-        <div>_______________________________________________________</div>
+    <div className={"page2"}>
+      <div className={"page2-text"}>
+        <div className={"page2-subtitle"}>BECOME AWARE</div>
+        <div className={"page2-bodytext"}>
+          With wit and vlor, Lumina outsmarted the Shadow Beasts and reclaimed
+          the artifact, restoring balance and peace to the forest. Her return
+          was celebrated with a burst of light so bright that it illuminated the
+          entire land, etching her legend into the hearts of every mushroom.
+        </div>
       </div>
-
-      <div style={{"backgroundColor": "lightgray"}}>
-        <form>
-          <div id="form title">FILL IN THE FOLLOWING INFORMATION</div>
-        <input type="text" value="Full Name"/>
-          <input type="text" value="Age"/>
-          <input type="text" value="Smoking History"/>
-          <input type="text" value="Please Add Any Additional Information"/>
-          <button>SUBMIT</button>
-        </form>
-      </div>
+      <form>
+        <div id="formtitle">FILL IN THE FOLLOWING INFORMATION</div>
+        <div id="">Full Name</div>
+        <input type="text" placeholder="Full Name*" />
+        <div id="formSubtitle2">Age</div>
+        <input type="text" placeholder="Age*" />
+        <div id="formSubtitle3">Chest Pain Type</div>
+        <input type="text" placeholder="-Select-*" />
+        <div id="formSubtitle3">Blood Pressure</div>
+        <input type="text" placeholder="-Select-*" />
+        <div id="formSubtitle4">Additional Information</div>
+        <input
+          type="text"
+          placeholder="Please Add any Additional Information*"
+        />
+        <button className="-Submit-btn">Submit</button>
+      </form>
     </div>
   );
 };
