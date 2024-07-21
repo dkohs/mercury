@@ -34,7 +34,21 @@
     display: flex;
 }
 
-.page1-text {
+.page2-text {
     margin: 100px;
     width: 50%
+}
+
+.page2-subtitle1 {
+  font-size: 35px;
+}
+
+.page2 {
+  display: flex;
+  color: gray
+}
+
+.page2-buttonbox {
+  margin: 100px;
+  width: 50%
 }
