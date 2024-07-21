@@ -1,0 +1,20 @@
+.page1-subtitle {
+    font-size: 35px;
+}
+
+.page1-subtitle2 {
+    font-size: 50px;
+}
+
+.page1 {
+    display: flex;
+}
+
+.page1-text {
+    margin: 100px;
+    width: 50%
+}
+
+.page1 {
+    display: flex;
+}

@@ -1,0 +1,17 @@
+.page2-bodytext {
+    width: 50%;
+}
+
+
+.page2-subtitle {
+    font-size: 40px;
+}
+
+.page2-text {
+    margin: 100px;
+    width: 60%
+}
+
+.page2 {
+    display: flex;
+}
