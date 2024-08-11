@@ -1,5 +1,10 @@
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./1stpage.css";
-import heartIcon from "../assets/img/women_smiles.png";
+import slide1 from "../assets/img/women_smiles.png"; // Example slide image
+import slide2 from "../assets/img/women_smiles.png"; // Example slide image
+import slide3 from "../assets/img/women_smiles.png"; // Example slide image
 
 export const Page1 = () => {
   return (
@@ -9,27 +14,33 @@ export const Page1 = () => {
         <div className={"page1-subtitle2"}>
           CARDIOVASCUAR DISEASE PREDICTIVE ANALYSIS
         </div>
-        <ul className={"page1-bodytext1"}>
-          <li>
-            In a land where the sun shone a gentle lavender hue and the rivers
-            flowed with liquid gold.
-          </li>
-          <li>
-            These mushrooms, with caps adorned in intricate patterns of silver
-            and emerald.
-          </li>
-          <li>
-          Each flicker told a story of ancient forest magic, the kind that made
-          the trees hum.
-          </li>
-          <li>
-          In the heart of this enchanted forest stood the Great Spore Tree, whose branches
-          reached towards the stars.
-          </li>
-        </ul>
+        <div className={"page1-bodytext"}>
+          In a land where the sun shone a gentle lavender hue and the rivers
+          flowed with liquid gold, there lived a community of sentient
+          mushrooms. These mushrooms, with caps adorned in intricate patterns of
+          silver and emerald, communicated through a symphony of bioluminescent
+          flickers. Each flicker told a story of ancient forest magic, the kind
+          that made the trees hum with life and the air shimmer with mystery. In
+          the heart of this enchanted forest stood the Great Spore Tree, whose
+          branches reached towards the stars, and whose roots whispered secrets
+          to the earth.
+        </div>
       </div>
       <div className={"women-smiles"}>
-        <img src={heartIcon} alt={"women-smiles"} />
+        <Carousel showThumbs={false} autoPlay infiniteLoop>
+          <div>
+            <img src={slide1} alt="Slide 1" />
+            <p className="legend">Legend 1</p>
+          </div>
+          <div>
+            <img src={slide2} alt="Slide 2" />
+            <p className="legend">Legend 2</p>
+          </div>
+          <div>
+            <img src={slide3} alt="Slide 3" />
+            <p className="legend">Legend 3</p>
+          </div>
+        </Carousel>
       </div>
     </div>
   );

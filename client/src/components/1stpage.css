@@ -1,20 +1,14 @@
-.page1-subtitle {
-  font-size: 35px;
-  font-weight: 600;
-}
-
 .page1-subtitle2 {
   font-size: 50px;
-  font-weight: 600;
-}
-
-.page1 {
-  display: flex;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .page1-text {
   margin: 100px;
   width: 50%;
+  flex: 1;
+  padding-right: 20px;
   font-family: "Montserrat";
 }
 
@@ -22,15 +16,47 @@
   display: flex;
 }
 
-.page1-bodytext1 {
+.page1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.page1-subtitle {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.page1-bodytext {
   font-size: 20px;
   margin-top: 25px;
   margin-bottom: 25px;
   margin-right: 200px;
   list-style: disc;
   font-weight: 450;
+  line-height: 1.5;
 }
 
-.page1-bodytext1 li {
+.page1-bodytext li {
   margin-bottom: 30px;
- }
+}
+
+.women-smiles {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .slide {
+  background: none;
+}
+
+.carousel .legend {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+}
