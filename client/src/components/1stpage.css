@@ -1,20 +1,36 @@
 .page1-subtitle {
-    font-size: 35px;
+  font-size: 35px;
+  font-weight: 600;
 }
 
 .page1-subtitle2 {
-    font-size: 50px;
+  font-size: 50px;
+  font-weight: 600;
 }
 
 .page1 {
-    display: flex;
+  display: flex;
 }
 
 .page1-text {
-    margin: 100px;
-    width: 50%
+  margin: 100px;
+  width: 50%;
+  font-family: "Montserrat";
 }
 
 .page1 {
-    display: flex;
+  display: flex;
 }
+
+.page1-bodytext1 {
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-right: 200px;
+  list-style: disc;
+  font-weight: 450;
+}
+
+.page1-bodytext1 li {
+  margin-bottom: 30px;
+ }
