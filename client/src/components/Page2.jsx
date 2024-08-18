@@ -25,7 +25,7 @@ export const Page2 = () => {
         <input type="text" placeholder="Full Name*"/>
         <div id="formSubtitle2">Age</div>
         <input type="text" placeholder="Age*" />
-        <div id="formSubtitle3">Chest Pain Type</div>
+        <div id="formSubtitle3">Chest Pain Ty pe</div>
         <input type="text" placeholder="-Select-*" />
         <div id="formSubtitle4">Blood Pressure</div>
         <input type="text" placeholder="Blood Pressure*" />

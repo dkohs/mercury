@@ -27,20 +27,6 @@ export const Page1 = () => {
         </div>
       </div>
       <div className={"women-smiles"}>
-        <Carousel showThumbs={false} autoPlay infiniteLoop>
-          <div>
-            <img src={slide1} alt="Slide 1" />
-            <p className="legend">Legend 1</p>
-          </div>
-          <div>
-            <img src={slide2} alt="Slide 2" />
-            <p className="legend">Legend 2</p>
-          </div>
-          <div>
-            <img src={slide3} alt="Slide 3" />
-            <p className="legend">Legend 3</p>
-          </div>
-        </Carousel>
       </div>
     </div>
   );
