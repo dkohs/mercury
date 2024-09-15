@@ -8,12 +8,25 @@ import {
   Box,
   Typography,
 } from "@mui/material";
+import {
+  evaluateAge,
+  evaluateSex,
+  evaluateChestPain,
+  evaluateEA,
+} from "../utils/utils";
+import axios from "axios"
 
 export const CardioForm = () => {
   const questions = [
-    { id: 1, question: "What is your Date of Birth?", type: "date" },
+    { id: "Age", question: "What is your Date of Birth?", type: "date" },
     {
-      id: 2,
+      id: "Sex",
+      question: "What is your sex?",
+      type: "multiple-choice",
+      options: ["Female", "Male"],
+    },
+    {
+      id: "ChestPainType",
       question: "How would you describe your chest pain?",
       type: "multiple-choice",
       options: [
@@ -23,22 +36,29 @@ export const CardioForm = () => {
         "Very Severe (Score 4): Excruciating chest pain, debilitating and requires immediate medical attention due to the potential seriousness.",
       ],
     },
-    { id: 3, question: "What is your blood pressure?", type: "number" },
-    { id: 4, question: "What is your cholesterol levels", type: "number" },
-    { id: 5, question: "What is your max heart rate?", type: "number" },
+    { id: "BP", question: "What is your blood pressure?", type: "number" },
     {
-      id: 6,
+      id: "Cholesterol",
+      question: "What is your cholesterol levels",
+      type: "number",
+    },
+    { id: "MaxHR", question: "What is your max heart rate?", type: "number" },
+    {
+      id: "ExerciseAngina",
       question:
         "Do you have chest pain or discomfort that occurs during exercise?",
-      type: "multiple choice",
+      type: "multiple-choice",
       options: ["True", "False"],
     },
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [prediction, setPrediction] = useState(null)
 
-  const handleNext = () => {
+  const handleNext = (event) => {
+    event.preventDefault();
+    
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
@@ -57,11 +77,37 @@ export const CardioForm = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Submitted Answers:", answers);
-    // You can perform any further actions here like sending data to a server
+
+    const dataPayload = {
+      age: evaluateAge(answers.Age),
+      sex: evaluateSex(answers.Sex),
+      chestPainType: evaluateChestPain(answers.ChestPainType),
+      bp: parseFloat(answers.BP),
+      cholesterol: parseFloat(answers.Cholesterol),
+      maxHR: parseFloat(answers.MaxHR),
+      exerciseAngina: evaluateEA(answers.ExerciseAngina),
+    };
+
+    console.log("Submitted dataPayload:", dataPayload);
+
+    try {
+      const response = await axios.post("/prediction", dataPayload);
+      console.log("Response:", response.data.prediction);
+      setPrediction(response.data.prediction)
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
+
+  const renderPrediction = () => {
+    if (prediction > 0) {
+      return (<Box>{prediction}</Box>)
+    } else {
+      return null
+    }
+  }
 
   return (
     <Box
@@ -121,11 +167,12 @@ export const CardioForm = () => {
             Submit
           </Button>
         ) : (
-          <Button variant="contained" onClick={handleNext}>
+          <Button type="button" variant="contained" onClick={handleNext}>
             Next
           </Button>
         )}
       </Box>
+      {renderPrediction()}
     </Box>
   );
 };

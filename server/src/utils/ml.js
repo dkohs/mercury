@@ -1,15 +1,15 @@
 const { loadData } = require("./loadData");
 const tf = require("@tensorflow/tfjs");
 
-const runML = async (
+const runML = async ({
   age,
   sex,
   chestPainType,
   bp,
   cholesterol,
   maxHR,
-  exerciseAngina
-) => {
+  exerciseAngina,
+}) => {
   const data = await loadData();
 
   const featureNames = [
@@ -67,23 +67,18 @@ const runML = async (
     const evalResult = model.evaluate(testFeatures, testLabels);
     evalResult[1].print(); // Print test accuracy
 
-    // Predict on new data
-    const newUserInput = [
-      age,
-      sex,
-      chestPainType,
-      bp,
-      cholesterol,
-      maxHR,
-      exerciseAngina,
-    ]; // User input
-    const newUserTensor = tf.tensor2d([newUserInput]);
+    const newUserTensor = tf.tensor2d(
+      [[age, sex, chestPainType, bp, cholesterol, maxHR, exerciseAngina]],
+      [1, 7]
+    );
     const normalizedNewUser = newUserTensor.sub(mean).div(variance.sqrt());
     const prediction = model.predict(normalizedNewUser);
     prediction.print(); // Print prediction result
+
+    return prediction.dataSync()[0];
   }
 
-  trainModel();
+  return await trainModel();
 };
 
 module.exports = { runML };

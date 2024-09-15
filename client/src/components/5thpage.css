@@ -1,0 +1,43 @@
+.page5-bodytext {
+    width: 50%;
+}
+
+
+.page5-subtitle {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.page5-text {
+    margin: 100px;
+    width: 65%;
+    font-family: "Montserrat";
+}
+
+.page5 {
+    display: flex;
+}
+
+.page5-bodytext {
+    font-size: 20px;
+}
+
+.form {
+    width: 40%;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    font-family: "Montserrat";
+}
+
+.page5-bodytext {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 200px;
+    list-style: disc;
+    font-weight: 450;
+}
+
+.page5-bodytext li {
+    margin-bottom: 30px;
+}
