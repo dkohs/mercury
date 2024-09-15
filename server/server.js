@@ -5,13 +5,17 @@ const { runML } = require("./src/utils/ml");
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
 app.use(express.static(path.join(__dirname, "/public")));
 
 app.post("/prediction", async (req, res) => {
-  console.log(res.body);
+  console.log("received payload: ",req.body);
 
-  console.log(await runML());
-  res.json({ cat: "true" });
+  const prediction = await runML(req.body);
+
+  res.json({ prediction: prediction });
 });
 
 app.listen(PORT, () => {
