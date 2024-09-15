@@ -65,66 +65,90 @@ export const CardioForm = () => {
 
   return (
     <Box
-      component="form"
-      onSubmit={handleSubmit}
       sx={{
+        margin: "32px",
+        height: "400px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        mt: 2,
       }}
     >
-      <Typography variant="h6">
-        {questions[currentQuestionIndex].question}
-      </Typography>
-      {questions[currentQuestionIndex].type === "multiple-choice" ? (
-        <RadioGroup
-          sx={{ mt: 2 }}
-          value={answers[questions[currentQuestionIndex].id] || ""}
-          onChange={handleChange}
-        >
-          {questions[currentQuestionIndex].options.map((option, index) => (
-            <FormControlLabel
-              key={index}
-              value={option}
-              control={<Radio />}
-              label={option}
-            />
-          ))}
-        </RadioGroup>
-      ) : (
-        <TextField
-          fullWidth
-          sx={{ mt: 2 }}
-          type={questions[currentQuestionIndex].type}
-          value={answers[questions[currentQuestionIndex].id] || ""}
-          onChange={handleChange}
-        />
-      )}
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Typography variant="h4" gutterBottom>
+          {`Cardiovascular Disease Probability Evaluation`}
+        </Typography>
+      </Box>
       <Box
+        component="form"
+        onSubmit={handleSubmit}
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: "column",
+          alignItems: "space-between",
           mt: 2,
-          width: "100%",
+          margin: "32px",
+          height: "100%"
         }}
       >
-        <Button
-          variant="contained"
-          onClick={handlePrevious}
-          disabled={currentQuestionIndex === 0}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
         >
-          Previous
-        </Button>
-        {currentQuestionIndex === questions.length - 1 ? (
-          <Button type="submit" variant="contained" color="primary">
-            Submit
+          <Typography variant="h6">
+            {questions[currentQuestionIndex].question}
+          </Typography>
+          {questions[currentQuestionIndex].type === "multiple-choice" ? (
+            <RadioGroup
+              sx={{ mt: 2 }}
+              value={answers[questions[currentQuestionIndex].id] || ""}
+              onChange={handleChange}
+            >
+              {questions[currentQuestionIndex].options.map((option, index) => (
+                <FormControlLabel
+                  key={index}
+                  value={option}
+                  control={<Radio />}
+                  label={option}
+                />
+              ))}
+            </RadioGroup>
+          ) : (
+            <TextField
+              fullWidth
+              sx={{ mt: 2 }}
+              type={questions[currentQuestionIndex].type}
+              value={answers[questions[currentQuestionIndex].id] || ""}
+              onChange={handleChange}
+            />
+          )}
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            mt: 2,
+            width: "100%",
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={handlePrevious}
+            disabled={currentQuestionIndex === 0}
+          >
+            Previous
           </Button>
-        ) : (
-          <Button variant="contained" onClick={handleNext}>
-            Next
-          </Button>
-        )}
+          {currentQuestionIndex === questions.length - 1 ? (
+            <Button type="submit" variant="contained" color="primary">
+              Submit
+            </Button>
+          ) : (
+            <Button variant="contained" onClick={handleNext}>
+              Next
+            </Button>
+          )}
+        </Box>
       </Box>
     </Box>
   );
