@@ -12,7 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "@tensorflow/tfjs": "^4.20.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
     "csv-parser": "^3.0.0",
-    "express": "^4.19.2"
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2"
   }
 }
