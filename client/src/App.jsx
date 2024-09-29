@@ -1,22 +1,22 @@
-import { NavBar } from "./components/NavBar";
-import { Hero } from "./components/Hero";
-import { About } from "./components/About";
-import { CardioForm } from "./components/CardioForm";
-import { Footer } from "./components/Footer";
-import { LogInForm } from "./components/LogInForm";
-import { SignUpForm } from "./components/SignUpForm";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
+import { Dashboard } from "./pages/Dashboard";
+import { Login } from "./pages/Login";
+import { SignUp } from "./pages/SignUp";
 
 export const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
-    <Box className="App">
-      <NavBar />
-      <Hero />
-      <About />
-      <CardioForm />
-      <LogInForm />
-      <SignUpForm />
-      <Footer />
-    </Box>
+    <Router>
+      <Box className="App">
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </Box>
+    </Router>
   );
 };
