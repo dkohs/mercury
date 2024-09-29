@@ -30,19 +30,37 @@ export const SignUpForm = () => {
       <Typography variant="h5" sx={{ marginBottom: "20px" }}>
         Sign up
       </Typography>
-          <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            marginRight: "5px"
+          }}
+        >
         <TextField
           label="First Name"
           variant="outlined"
           fullWidth
           margin="normal"
-        />
+          />
+          </Box>
+        <Box
+          sx={{
+            marginLeft: "5px"
+          }}
+        >
         <TextField
           label="Last Name"
           variant="outlined"
           fullWidth
           margin="normal"
         />
+        </Box>
       </Box>
       <TextField
         label="Email"
