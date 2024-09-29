@@ -5,12 +5,35 @@ export const LogInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle login logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
+
+    try {
+      const response = await axios.post('/login', {
+        email,
+        password,
+      });
+  
+      // If login is successful, you'll get the JWT token in the response
+      const { token } = response.data;
+  
+      // Store the token (e.g., in localStorage or state management)
+      localStorage.setItem('token', token);
+  
+      // Optionally, navigate the user to another page
+      console.log('Login successful:', token);
+      
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        console.error('User not found');
+      } else if (error.response && error.response.status === 401) {
+        console.error('Invalid password');
+      } else {
+        console.error('Error logging in:', error);
+      }
+    }
   };
+
 
   return (
     <Box
