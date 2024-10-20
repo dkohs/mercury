@@ -13,7 +13,7 @@ export const Footer = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="body1" align="center">
-          © {new Date().getFullYear()} Your Company Name. All rights reserved.
+          © {new Date().getFullYear()} Prometheus, Jake and Daniel. All rights reserved.
         </Typography>
         <Box sx={{ mt: 2 }}>
           <Typography variant="body2" align="center">

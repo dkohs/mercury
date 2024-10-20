@@ -1,26 +1,53 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Dashboard } from "./pages/Dashboard";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
+import { useNavigate } from "react-router-dom";
 
 export const App = () => {
+  const navigate = useNavigate();
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleIsAuthenticated = (isAuth) => {
-    setIsAuthenticated(isAuth)
-  }
+    setIsAuthenticated(isAuth);
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    } else {
+      navigate("/");
+    }
+  }, [isAuthenticated]);
 
   return (
-    <Router>
-      <Box className="App">
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard isAuth={isAuthenticated}/>} />
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/" element={<Login onAuth={handleIsAuthenticated}/>} />
-        </Routes>
-      </Box>
-    </Router>
+    <Box className="App">
+      <Routes>
+        <Route
+          path="/dashboard"
+          element={
+            <Dashboard
+              isAuth={isAuthenticated}
+              onAuth={handleIsAuthenticated}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <SignUp isAuth={isAuthenticated} onAuth={handleIsAuthenticated} />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <Login isAuth={isAuthenticated} onAuth={handleIsAuthenticated} />
+          }
+        />
+      </Routes>
+    </Box>
   );
 };

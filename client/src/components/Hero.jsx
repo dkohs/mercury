@@ -18,6 +18,7 @@ export const Hero = () => {
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      mb={"45px"}
     >
       <Box sx={{ width: "100%" }}>
         <Slider {...settings}>
@@ -54,7 +55,7 @@ export const Hero = () => {
                 textAlign: "center", // Center the text horizontally
               }}
             >
-              {`"Foresight" in Latin, Prometheus's goal is to provide insight on one's risk of cardiovascular disease.`}
+              {`Prometheus: Igniting the Future of Heart Health with AI Precision`}
             </Box>
           </Box>
           <Box

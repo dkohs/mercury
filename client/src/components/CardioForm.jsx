@@ -118,11 +118,12 @@ export const CardioForm = () => {
   return (
     <Box
       sx={{
-        margin: "32px",
+        width: "70%",
         height: "400px",
         display: "flex",
         flexDirection: "column",
       }}
+      mb={"45px"}
     >
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Typography variant="h4" gutterBottom>
