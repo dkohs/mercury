@@ -10,14 +10,15 @@ export const About = () => {
         alignItems="center"
         justifyContent="center"
         mt={4}
+        mb={"45px"}
       >
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom mb={"8px"}>
           {`About Us`}
         </Typography>
-        <Typography variant="body1" color="textSecondary" >
+        <Typography variant="body1" color="textSecondary" mb={"8px"}>
           {`In today's society, unhealthy habits have grown especially problematic, with heart issues becoming especially relevant.`}
         </Typography>
-        <Typography variant="body1" color="textSecondary" >
+        <Typography variant="body1" color="textSecondary" mb={"8px"}>
           {`The goal with Mercury is to provide a convenient method for worried individuals to formulate a defined understsanding on whether their health may actually be at risk of a cardiovascular disease. Similar to that of a BMI test, the results given by our application do not objectively represent one's risk but rather a metric to estimate your level of health. _This form is not applicable to any legal, scientific, or commercial uses_`}
         </Typography>
       </Box>
