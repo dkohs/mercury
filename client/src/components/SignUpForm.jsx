@@ -1,15 +1,39 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+
+    const registerPayload = {
+      email,
+      password,
+      firstName,
+      lastName
+    };
+
+    try {
+      const response = await axios.post("/register", registerPayload);
+      console.log("Response:", response);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
+
+    navigate("/")
   };
+
+  const handleLoginReroute = () => {
+    navigate("/");
+  }
 
   return (
     <Box
@@ -39,27 +63,29 @@ export const SignUpForm = () => {
       >
         <Box
           sx={{
-            marginRight: "5px"
+            marginRight: "5px",
           }}
         >
-        <TextField
-          label="First Name"
-          variant="outlined"
-          fullWidth
-          margin="normal"
+          <TextField
+            label="First Name"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            onChange={(e) => setFirstName(e.target.value)}
           />
-          </Box>
+        </Box>
         <Box
           sx={{
-            marginLeft: "5px"
+            marginLeft: "5px",
           }}
         >
-        <TextField
-          label="Last Name"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-        />
+          <TextField
+            label="Last Name"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </Box>
       </Box>
       <TextField
@@ -90,6 +116,7 @@ export const SignUpForm = () => {
       >
         Sign Up
       </Button>
+
       <Box
         sx={{
           height: "2px",
@@ -105,8 +132,9 @@ export const SignUpForm = () => {
           marginTop: "15px",
           fontSize: "15px",
         }}
+        onClick={handleLoginReroute}
       >
-        Create an Account
+        Login
       </Typography>
     </Box>
   );

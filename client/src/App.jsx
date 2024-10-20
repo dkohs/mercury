@@ -8,13 +8,17 @@ import { SignUp } from "./pages/SignUp";
 export const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  const handleIsAuthenticated = (isAuth) => {
+    setIsAuthenticated(isAuth)
+  }
+
   return (
     <Router>
       <Box className="App">
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard isAuth={isAuthenticated}/>} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/" element={<Login onAuth={handleIsAuthenticated}/>} />
         </Routes>
       </Box>
     </Router>
