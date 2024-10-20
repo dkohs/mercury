@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const LogInForm = () => {
+export const LogInForm = ({onAuth}) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -9,31 +13,39 @@ export const LogInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('/login', {
+      const response = await axios.post("/login", {
         email,
         password,
       });
-  
+
       // If login is successful, you'll get the JWT token in the response
       const { token } = response.data;
-  
+
+      if (!token) {
+        return
+      }
+
       // Store the token (e.g., in localStorage or state management)
-      localStorage.setItem('token', token);
-  
+      localStorage.setItem("token", token);
+
+      onAuth(true)
+
       // Optionally, navigate the user to another page
-      console.log('Login successful:', token);
-      
+      navigate("/dashboard")
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        console.error('User not found');
+        console.error("User not found");
       } else if (error.response && error.response.status === 401) {
-        console.error('Invalid password');
+        console.error("Invalid password");
       } else {
-        console.error('Error logging in:', error);
+        console.error("Error logging in:", error);
       }
     }
   };
 
+  const handleRegisterReroute = () => {
+    navigate("/register");
+  }
 
   return (
     <Box
@@ -90,11 +102,15 @@ export const LogInForm = () => {
           marginX: "16", // Margin around the line
           marginTop: "20px",
         }}
-          />
-          <Typography variant="h6" sx={{
-              marginTop: "15px", 
-                fontSize: "15px" 
-      }}>
+      />
+      <Typography
+        variant="h6"
+        sx={{
+          marginTop: "15px",
+          fontSize: "15px",
+        }}
+        onClick={handleRegisterReroute}
+      >
         Register Now
       </Typography>
     </Box>
